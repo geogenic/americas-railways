@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>America's Railroads: The Big Picture</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="leaflet.css"/>
+		<script src="leaflet.js"></script>
+		<style type="text/css">
+			body {margin: 0;padding: 0;} 
+			html, body {width: 100%;height: 100%;} 
+			#map {width: 100%;height: 100%; background-color: #262626;}
+		</style>
+	</head>	
+	<body>
+		<div id="map"></div>
+		<script>
+			var usBounds = [
+			  [24.0, -125.0],
+			  [50.0, -66.0]
+			];
+
+			var map = L.map('map', {
+			  attributionControl: false,
+			  maxBounds: usBounds,
+			  maxBoundsViscosity: 1.0
+			}).setView([36.9208, -97.3294], 5);
+			L.control.attribution({prefix: false}).addTo(map);
+			var tilesource_layer = L.tileLayer('./{z}/{x}/{y}.png', {minZoom: 5, maxZoom: 11, tms: false, attribution: 'Created by QGIS'}).addTo(map);
+		</script>
+	</body>
+</html>
